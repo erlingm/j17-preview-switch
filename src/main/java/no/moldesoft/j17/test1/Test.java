@@ -1,6 +1,5 @@
 package no.moldesoft.j17.test1;
 
-import java.io.Serializable;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -15,16 +14,16 @@ public class Test {
     }
 
     private void exec(String[] args) {
-        List<? extends Serializable> list = Arrays.asList(1957, "Erling", null, Math.PI, Long.MAX_VALUE, 3.14f,
-                                                          Something.THREE, 6., 9., GenderPrefix.MISS, GenderPrefix.MR,
-                                                          LocalDate.of(1957, Month.AUGUST, 30), LocalDateTime.now(),
-                                                          ZonedDateTime.now(ZoneId.of("UTC")));
+        List<Object> list = Arrays.asList(1957, "Erling", null, Math.PI, Long.MAX_VALUE, 3.14f,
+                                          Something.THREE, 6., 9., GenderPrefix.MISS, GenderPrefix.MR,
+                                          LocalDate.of(1957, Month.AUGUST, 30), LocalDateTime.now(),
+                                          ZonedDateTime.now(ZoneId.of("UTC")));
         list.forEach(this::doCheck);
     }
 
     private void doCheck(Object obj) {
         System.out.printf("""
-                                  Checked value of "%s" is "%s"%n""", obj, check(obj));
+                          Checked value of "%s" is "%s"%n""", obj, check(obj));
     }
 
     private String check(Object obj) {
