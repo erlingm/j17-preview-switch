@@ -64,7 +64,7 @@ public class Test {
     }
 
     private String check(Temporal temporal) {
-        Locale locale = Locale.forLanguageTag("nb");
+        Locale locale = Locale.getDefault(Locale.Category.DISPLAY);
         if (temporal.isSupported(ChronoUnit.HOURS) && temporal.isSupported(ChronoField.OFFSET_SECONDS)) {
             return "Supports HOURS: " +
                    DateTimeFormatter.ofPattern("d. MMM uuuu 'kl.' H:mm:ss - VV - zzzz", locale).format(temporal);
